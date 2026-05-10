@@ -1,0 +1,217 @@
+export const personalInfo = {
+  name: "Aakarsh Saxena",
+  title: "Software Engineer",
+  subtitle: "AI Systems Builder · Full-Stack Developer",
+  tagline: "Building scalable AI systems, multi-agent environments, and production-grade web applications.",
+  email: "aakarshsaxena1804@gmail.com",
+  phone: "+91-9145973954",
+  linkedin: "https://www.linkedin.com/in/aakarsh-saxena-a71b21304/",
+  github: "https://github.com/Aakarsh2007",
+  leetcode: "https://leetcode.com/u/tQJTt5Mwpi/",
+  resume: "#",
+  education: {
+    college: "Indian Institute of Information Technology Lucknow",
+    degree: "B.Tech in Information Technology",
+    period: "Aug 2024 – June 2028",
+    location: "Lucknow, Uttar Pradesh",
+  },
+};
+
+export const projects = [
+  {
+    id: "interview-ai",
+    title: "Interview-AI",
+    subtitle: "AI-Powered Mock Interview Platform",
+    description:
+      "Full-stack AI interview platform that parses resumes, generates personalized interview roadmaps, and conducts real-time voice-based interviews using Gemini API with natural conversational simulation.",
+    longDescription:
+      "Built a full-stack AI interview platform that parses resumes, generates personalized interview roadmaps, and conducts real-time voice-based interviews using Gemini API. Integrated Web Speech API pipelines for speech-to-text and text-to-speech interactions, enabling natural conversational interview simulations.",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Redis", "Gemini API", "JWT", "Puppeteer"],
+    highlights: [
+      "Voice AI interaction via Web Speech API",
+      "Resume intelligence & parsing",
+      "Real-time interview simulation",
+      "PDF report generation via Puppeteer",
+      "JWT auth + Redis session caching",
+    ],
+    live: "https://interview-ai-frontend-1ets.onrender.com/",
+    github: "https://github.com/Aakarsh2007/Interview-AI",
+    color: "cyan",
+    gradient: "from-cyan-500/20 to-blue-500/20",
+    borderColor: "border-cyan-500/20",
+    glowColor: "rgba(6, 182, 212, 0.15)",
+    year: "2026",
+  },
+  {
+    id: "oceanus",
+    title: "Oceanus",
+    subtitle: "Multi-Agent RL Environment",
+    description:
+      "Reinforcement learning environment where LLM agents negotiate resource recovery strategies through natural language. Fine-tuned Qwen2-0.5B with GRPO achieving +9.0 average reward improvement.",
+    longDescription:
+      "Developed a reinforcement learning environment where LLM agents negotiate resource recovery strategies using natural language interactions. Fine-tuned Qwen2-0.5B using GRPO with LoRA adapters, achieving +9.0 average reward improvement over baseline policies.",
+    tech: ["Python", "FastAPI", "Qwen2", "GRPO", "LoRA", "Three.js", "HuggingFace"],
+    highlights: [
+      "Multi-agent RL with policy negotiation",
+      "+9.0 avg reward via GRPO fine-tuning",
+      "3-layer swarm simulation architecture",
+      "Three.js emergent behavior visualization",
+      "FastAPI inference pipelines",
+    ],
+    live: "https://huggingface.co/spaces/aakarsh2007/Oceanus-AI",
+    github: "https://github.com/Aakarsh2007/Oceanus-",
+    color: "violet",
+    gradient: "from-violet-500/20 to-purple-500/20",
+    borderColor: "border-violet-500/20",
+    glowColor: "rgba(139, 92, 246, 0.15)",
+    year: "2026",
+  },
+  {
+    id: "ai-code-reviewer",
+    title: "AI Code Reviewer",
+    subtitle: "LLM-Powered Debugging Assistant",
+    description:
+      "LLM-powered code review platform for bug detection, complexity analysis, and automated refactoring suggestions with interactive diff-based review interface and persistent session history.",
+    longDescription:
+      "Built an LLM-powered code review platform for bug detection, complexity analysis, and automated refactoring suggestions. Developed an interactive diff-based review interface with persistent review history and searchable code sessions.",
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Redis", "JWT"],
+    highlights: [
+      "AI-powered code analysis & bug detection",
+      "Context-aware debugging suggestions",
+      "Persistent review sessions",
+      "Diff visualization interface",
+      "Secure JWT + Redis session management",
+    ],
+    live: null,
+    github: "https://github.com/Aakarsh2007/AI-Code-Reviewer",
+    color: "blue",
+    gradient: "from-blue-500/20 to-indigo-500/20",
+    borderColor: "border-blue-500/20",
+    glowColor: "rgba(59, 130, 246, 0.15)",
+    year: "2026",
+  },
+  {
+    id: "aegis",
+    title: "Aegis",
+    subtitle: "Autonomous SRE & Auto-Remediation Engine",
+    description:
+      "Self-healing infrastructure monitoring system with anomaly detection and automated remediation workflows. High-performance C++ telemetry daemon with live observability dashboard.",
+    longDescription:
+      "Built a self-healing infrastructure monitoring system capable of anomaly detection and automated remediation workflows. Developed a high-performance C++ telemetry daemon for collecting and streaming real-time system metrics.",
+    tech: ["C++", "Node.js", "Python", "PostgreSQL", "Docker"],
+    highlights: [
+      "High-performance C++ telemetry daemon",
+      "Auto-remediation workflows",
+      "Automated GitHub PR generation",
+      "Live observability dashboard",
+      "Fault-tolerant incident response",
+    ],
+    live: null,
+    github: "https://github.com/Aakarsh2007/Aegis",
+    color: "emerald",
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    borderColor: "border-emerald-500/20",
+    glowColor: "rgba(16, 185, 129, 0.15)",
+    year: "2026",
+  },
+];
+
+export const skills = {
+  Languages: [
+    { name: "TypeScript", level: 90 },
+    { name: "JavaScript", level: 92 },
+    { name: "Python", level: 85 },
+    { name: "C++", level: 80 },
+    { name: "SQL", level: 78 },
+  ],
+  Frontend: [
+    { name: "React", level: 92 },
+    { name: "Next.js", level: 88 },
+    { name: "TailwindCSS", level: 90 },
+    { name: "Three.js", level: 72 },
+    { name: "Framer Motion", level: 80 },
+  ],
+  Backend: [
+    { name: "Node.js", level: 88 },
+    { name: "Express.js", level: 87 },
+    { name: "FastAPI", level: 80 },
+    { name: "REST APIs", level: 90 },
+    { name: "Redis", level: 78 },
+  ],
+  "AI / ML": [
+    { name: "Gemini API", level: 85 },
+    { name: "RLHF / GRPO", level: 78 },
+    { name: "LoRA Fine-Tuning", level: 75 },
+    { name: "LLM Integration", level: 85 },
+    { name: "Prompt Engineering", level: 88 },
+  ],
+  Databases: [
+    { name: "MongoDB", level: 85 },
+    { name: "PostgreSQL", level: 80 },
+    { name: "Mongoose", level: 83 },
+  ],
+  DevOps: [
+    { name: "Docker", level: 75 },
+    { name: "Git", level: 90 },
+    { name: "Linux", level: 78 },
+    { name: "Postman", level: 85 },
+  ],
+};
+
+export const achievements = [
+  {
+    title: "Global Rank 4",
+    subtitle: "CodeChef Starters 233",
+    description: "Secured Global Rank 4 among competitive programmers worldwide in a rated contest.",
+    icon: "trophy",
+    color: "cyan",
+    value: "4",
+    prefix: "#",
+  },
+  {
+    title: "3★ Rated",
+    subtitle: "CodeChef",
+    description: "Achieved 3-star rating through consistent performance in competitive programming.",
+    icon: "star",
+    color: "violet",
+    value: "3★",
+    prefix: "",
+  },
+  {
+    title: "Pupil",
+    subtitle: "Codeforces",
+    description: "Achieved Pupil rating through consistent participation in algorithmic contests.",
+    icon: "code",
+    color: "blue",
+    value: "Pupil",
+    prefix: "",
+  },
+  {
+    title: "500+ Problems",
+    subtitle: "DSA Solved",
+    description: "Solved 500+ Data Structures and Algorithms problems across LeetCode, CodeChef, and Codeforces.",
+    icon: "zap",
+    color: "emerald",
+    value: "500",
+    prefix: "",
+    suffix: "+",
+  },
+  {
+    title: "AI Hackathon",
+    subtitle: "Meta × Scaler Finalist",
+    description: "Finalist at the Meta x Scaler AI Hackathon, competing among top AI builders.",
+    icon: "award",
+    color: "orange",
+    value: "Finalist",
+    prefix: "",
+  },
+];
+
+export const coursework = [
+  "Data Structures & Algorithms",
+  "Operating Systems",
+  "Database Management Systems",
+  "Object-Oriented Programming",
+  "Computer Networks",
+  "Machine Learning Fundamentals",
+];
