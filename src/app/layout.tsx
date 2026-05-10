@@ -30,8 +30,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Aakarsh Saxena" }],
   creator: "Aakarsh Saxena",
+  metadataBase: new URL("https://portfolio-sigma-lime-94.vercel.app"),
   openGraph: {
     type: "website",
+    url: "https://portfolio-sigma-lime-94.vercel.app",
     locale: "en_US",
     title: "Aakarsh Saxena — Software Engineer & AI Systems Builder",
     description:
