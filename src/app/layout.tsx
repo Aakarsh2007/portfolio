@@ -14,37 +14,44 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteTitle = "Aakarsh Saxena — Software Engineer · AI Agents & Full-Stack";
+const siteDescription =
+  "Aakarsh Saxena, B.Tech IT at IIIT Lucknow. Builds reliable LLM agents and production full-stack systems — RevPilot AI, Aegis, Oceanus. LeetCode Knight, Codeforces Specialist, CodeChef Global Rank 4.";
+
 export const metadata: Metadata = {
-  title: "Aakarsh Saxena — Software Engineer & AI Systems Builder",
-  description:
-    "Building scalable AI systems, multi-agent environments, and production-grade web applications. Full-Stack Developer at IIIT Lucknow.",
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
     "Aakarsh Saxena",
     "Software Engineer",
-    "AI Systems",
+    "SDE Intern",
+    "Backend Engineer",
     "Full-Stack Developer",
+    "Machine Learning Engineer",
+    "LLM Agents",
+    "FastAPI",
     "Next.js",
-    "React",
-    "Machine Learning",
+    "TypeScript",
+    "Python",
     "IIIT Lucknow",
   ],
   authors: [{ name: "Aakarsh Saxena" }],
   creator: "Aakarsh Saxena",
   metadataBase: new URL("https://portfolio-sigma-lime-94.vercel.app"),
   openGraph: {
-    type: "website",
+    type: "profile",
     url: "https://portfolio-sigma-lime-94.vercel.app",
     locale: "en_US",
-    title: "Aakarsh Saxena — Software Engineer & AI Systems Builder",
-    description:
-      "Building scalable AI systems, multi-agent environments, and production-grade web applications.",
-    siteName: "Aakarsh Saxena Portfolio",
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Aakarsh Saxena",
+    images: [{ url: "/aakarsh-saxena.jpg", width: 450, height: 554, alt: "Aakarsh Saxena" }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Aakarsh Saxena — Software Engineer & AI Systems Builder",
-    description:
-      "Building scalable AI systems, multi-agent environments, and production-grade web applications.",
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/aakarsh-saxena.jpg"],
   },
   robots: {
     index: true,

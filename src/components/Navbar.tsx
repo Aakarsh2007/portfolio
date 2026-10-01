@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
+import { personalInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -23,14 +24,12 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
 
       // Detect active section
-      const sections = ["about", "projects", "skills", "achievements", "contact"];
-      for (const section of sections.reverse()) {
+      const sections = ["contact", "achievements", "skills", "projects", "about"];
+      const current = sections.find((section) => {
         const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(section);
-          break;
-        }
-      }
+        return el && window.scrollY >= el.offsetTop - 120;
+      });
+      setActiveSection(current ?? "");
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -68,10 +67,10 @@ export default function Navbar() {
             whileHover={{ scale: 1.02 }}
           >
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center">
-              <Terminal className="w-4 h-4 text-white" />
+              <span className="font-mono text-xs font-bold text-white">AS</span>
             </div>
-            <span className="font-mono text-sm font-semibold text-white/80 group-hover:text-white transition-colors">
-              aakarsh<span className="text-cyan-400">.dev</span>
+            <span className="text-sm font-semibold text-white/85 group-hover:text-white transition-colors">
+              Aakarsh Saxena
             </span>
           </motion.a>
 
@@ -106,16 +105,26 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="mailto:aakarshsaxena1804@gmail.com"
-              className="px-4 py-2 text-sm font-medium rounded-lg border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-all duration-200"
+              href={personalInfo.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+            >
+              <Download className="w-3.5 h-3.5" />
+              Resume
+            </a>
+            <button
+              onClick={() => handleNavClick("#contact")}
+              className="px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/35 transition-shadow"
             >
               Hire Me
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             className="md:hidden p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -147,7 +156,15 @@ export default function Navbar() {
             ))}
             <div className="mt-2 pt-2 border-t border-white/[0.06]">
               <a
-                href="mailto:aakarshsaxena1804@gmail.com"
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/[0.05] rounded-lg transition-all"
+              >
+                Download Resume
+              </a>
+              <a
+                href={`mailto:${personalInfo.email}`}
                 className="block px-4 py-3 text-sm font-medium text-cyan-400 hover:bg-cyan-500/10 rounded-lg transition-all"
               >
                 Hire Me →

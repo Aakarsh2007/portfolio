@@ -2,11 +2,11 @@
 
 **Live:** [https://portfolio-sigma-lime-94.vercel.app](https://portfolio-sigma-lime-94.vercel.app)
 
-Elite developer portfolio built with Next.js 15, TypeScript, TailwindCSS, and Framer Motion.
+Elite developer portfolio built with Next.js 16, TypeScript, TailwindCSS, and Framer Motion.
 
 ## Tech Stack
 
-- Next.js 15 (App Router)
+- Next.js 16 (App Router)
 - TypeScript
 - TailwindCSS v4
 - Framer Motion

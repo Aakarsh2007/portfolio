@@ -1,204 +1,197 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
-
-// Inline SVG icons for brands not in lucide
-const GithubIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-  </svg>
-);
-
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-  </svg>
-);
-
-import { personalInfo } from "@/lib/data";
+import { ArrowDown, ArrowRight, Download, MapPin } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { personalInfo, stats } from "@/lib/data";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center px-6 pt-28 pb-20 overflow-hidden">
       {/* Ambient glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/[0.04] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-violet-500/[0.05] blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-500/[0.03] blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 left-[10%] w-[500px] h-[500px] rounded-full bg-cyan-500/[0.05] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[10%] w-[420px] h-[420px] rounded-full bg-violet-500/[0.06] blur-[110px] pointer-events-none" />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-4xl mx-auto text-center"
-      >
-        {/* Status badge */}
-        <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-500/20 text-xs font-mono text-cyan-400/80">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            Available for internships & collaborations
-          </div>
-        </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto w-full">
+        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-10 items-center">
+          {/* Left: intro */}
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="order-2 lg:order-1 text-center lg:text-left">
+            <motion.div variants={itemVariants} className="flex justify-center lg:justify-start mb-7">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-emerald-500/25 text-xs font-mono text-emerald-300/90">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
+                </span>
+                Open to SDE / AI engineering internships
+              </div>
+            </motion.div>
 
-        {/* Main heading */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05]">
-            <span className="text-white">Aakarsh</span>
-            <br />
-            <span className="gradient-text">Saxena</span>
-          </h1>
-        </motion.div>
+            <motion.p variants={itemVariants} className="font-mono text-sm text-white/45 mb-3">
+              Hi, I&apos;m
+            </motion.p>
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-5"
+            >
+              <span className="text-white">Aakarsh </span>
+              <span className="gradient-text">Saxena</span>
+            </motion.h1>
 
-        {/* Title */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <div className="flex flex-wrap items-center justify-center gap-2 text-sm font-mono text-white/40">
-            <span className="text-cyan-400/70">Software Engineer</span>
-            <span className="text-white/20">·</span>
-            <span className="text-violet-400/70">AI Systems Builder</span>
-            <span className="text-white/20">·</span>
-            <span className="text-blue-400/70">Full-Stack Developer</span>
-          </div>
-        </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 text-sm font-mono mb-6"
+            >
+              {personalInfo.roles.map((role, i) => (
+                <span key={role} className="flex items-center gap-2">
+                  {i > 0 && <span className="text-white/20">·</span>}
+                  <span className={["text-cyan-300/80", "text-violet-300/80", "text-blue-300/80"][i]}>{role}</span>
+                </span>
+              ))}
+            </motion.div>
 
-        {/* Tagline */}
-        <motion.p
-          variants={itemVariants}
-          className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto leading-relaxed mb-10"
-        >
-          Building scalable AI systems, multi-agent environments, and
-          production-grade web applications.{" "}
-          <span className="text-white/60">
-            B.Tech IT @ IIIT Lucknow.
-          </span>
-        </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-base sm:text-lg text-white/55 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4"
+            >
+              {personalInfo.tagline}
+            </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="flex items-center justify-center lg:justify-start gap-1.5 text-sm text-white/40 mb-9"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              B.Tech IT @ IIIT Lucknow · Class of 2028
+            </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap items-center justify-center gap-3 mb-14"
-        >
-          <motion.button
-            onClick={scrollToProjects}
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-shadow"
+            {/* CTAs */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-12"
+            >
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 transition-shadow flex items-center gap-2"
+              >
+                View my work
+                <ArrowRight className="w-4 h-4" />
+              </motion.a>
+              <motion.a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                className="px-6 py-3 rounded-xl border border-violet-500/35 text-violet-200 hover:bg-violet-500/10 text-sm font-semibold flex items-center gap-2 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Resume
+              </motion.a>
+              <div className="flex items-center gap-2">
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="w-11 h-11 rounded-xl glass border border-white/[0.08] text-white/60 hover:text-white hover:border-white/20 flex items-center justify-center transition-colors"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-11 h-11 rounded-xl glass border border-white/[0.08] text-white/60 hover:text-white hover:border-white/20 flex items-center justify-center transition-colors"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Stats strip */}
+            <motion.dl
+              variants={itemVariants}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.06]"
+            >
+              {stats.map((s) => (
+                <div key={s.label} className="bg-[#08080d] px-4 py-4 text-center lg:text-left">
+                  <dt className="sr-only">{s.label}</dt>
+                  <dd className="text-xl font-bold text-white font-mono">{s.value}</dd>
+                  <dd className="text-[11px] text-white/40 mt-1 leading-snug">{s.label}</dd>
+                </div>
+              ))}
+            </motion.dl>
+          </motion.div>
+
+          {/* Right: photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            View Projects
-          </motion.button>
-
-          <motion.a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-6 py-3 rounded-xl glass border border-white/[0.08] text-white/70 hover:text-white text-sm font-semibold flex items-center gap-2 transition-colors"
-          >
-            <GithubIcon className="w-4 h-4" />
-            GitHub
-          </motion.a>
-
-          <motion.a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-6 py-3 rounded-xl glass border border-white/[0.08] text-white/70 hover:text-white text-sm font-semibold flex items-center gap-2 transition-colors"
-          >
-            <LinkedinIcon className="w-4 h-4" />
-            LinkedIn
-          </motion.a>
-
-          <motion.button
-            onClick={scrollToContact}
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-6 py-3 rounded-xl border border-violet-500/30 text-violet-400 hover:bg-violet-500/10 text-sm font-semibold flex items-center gap-2 transition-all"
-          >
-            <Mail className="w-4 h-4" />
-            Contact
-          </motion.button>
-        </motion.div>
-
-        {/* Terminal-style code block */}
-        <motion.div
-          variants={itemVariants}
-          className="max-w-lg mx-auto glass border border-white/[0.06] rounded-2xl p-5 text-left"
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-3 h-3 rounded-full bg-red-500/60" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-            <div className="w-3 h-3 rounded-full bg-green-500/60" />
-            <span className="ml-2 font-mono text-xs text-white/20">~/aakarsh</span>
-          </div>
-          <div className="font-mono text-xs space-y-1.5">
-            <div>
-              <span className="text-cyan-400/60">$ </span>
-              <span className="text-white/50">whoami</span>
+            <div className="relative w-60 sm:w-72 lg:w-[340px]">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-cyan-500/25 via-violet-500/20 to-blue-500/25 blur-2xl opacity-70" />
+              <div className="relative rounded-[2rem] p-[1.5px] bg-gradient-to-br from-cyan-400/70 via-violet-500/50 to-blue-500/70">
+                <div className="relative aspect-[450/554] rounded-[calc(2rem-1.5px)] overflow-hidden bg-[#0b0b12]">
+                  <Image
+                    src={personalInfo.photo}
+                    alt="Portrait of Aakarsh Saxena"
+                    fill
+                    preload
+                    sizes="(min-width: 1024px) 340px, (min-width: 640px) 288px, 240px"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              {/* Floating badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.5 }}
+                className="absolute z-10 -bottom-5 -left-4 sm:-left-8 bg-[#0d0d16]/90 backdrop-blur-md rounded-2xl px-4 py-3 border border-white/10 shadow-xl"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-widest text-white/40">Finalist</p>
+                <p className="text-sm font-semibold text-white">Meta × Scaler AI Hackathon</p>
+              </motion.div>
             </div>
-            <div className="text-white/70 pl-2">
-              AI Engineer · Full-Stack Dev · Competitive Programmer
-            </div>
-            <div className="mt-2">
-              <span className="text-cyan-400/60">$ </span>
-              <span className="text-white/50">cat skills.txt</span>
-            </div>
-            <div className="text-violet-400/70 pl-2">
-              TypeScript · Python · React · Node.js · LLMs · GRPO
-            </div>
-            <div className="mt-2">
-              <span className="text-cyan-400/60">$ </span>
-              <span className="text-white/50">echo $STATUS</span>
-            </div>
-            <div className="text-green-400/70 pl-2 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
-              Open to opportunities
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      <motion.a
+        href="#about"
+        aria-label="Scroll to About"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.4 }}
+        className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
       >
-        <span className="font-mono text-xs text-white/20 tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ArrowDown className="w-4 h-4 text-white/20" />
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+          <ArrowDown className="w-4 h-4 text-white/25" />
         </motion.div>
-      </motion.div>
+      </motion.a>
     </section>
   );
 }

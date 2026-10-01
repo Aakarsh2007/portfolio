@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <ClientShell />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 overflow-x-clip">
         <Hero />
         <About />
         <Projects />
